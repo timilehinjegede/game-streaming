@@ -59,10 +59,9 @@ class _ProfileDrawerState extends State<ProfileDrawer> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                 SizedBox(
-                   height: 25,
-                 ),
-
+                  SizedBox(
+                    height: 25,
+                  ),
                   Row(
                     children: <Widget>[
                       ProfileLevelUp(),
@@ -73,12 +72,13 @@ class _ProfileDrawerState extends State<ProfileDrawer> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text('Timilehin Jegede', style:
-                            TextStyle(
-                              color: Colors.black87,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w700,
-                            ),
+                            Text(
+                              'Timilehin Jegede',
+                              style: TextStyle(
+                                color: Colors.black87,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w700,
+                              ),
                             ),
                             Text(
                               'Level 45',
@@ -134,9 +134,18 @@ class _ProfileDrawerState extends State<ProfileDrawer> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text('Find friends...',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
+                        Expanded(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: 'Find Friends...',
+                              border: InputBorder.none,
+                              hintStyle: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            cursorColor: Colors.grey,
                           ),
                         ),
                         Image(
@@ -148,25 +157,14 @@ class _ProfileDrawerState extends State<ProfileDrawer> {
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 35,
                   ),
-                  Row(
-                    children: <Widget>[
-                      Text('My teams',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16
-                        ),
-                      ),
-                      Container(
-                        child: Icon(
-                          Icons.keyboard_arrow_down,
-                          size: 20,
-                        ),
-                        padding: EdgeInsets.only(top: 3),
-                      ),
-                    ],
+                  Text(
+                    'My teams',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16),
                   ),
                   SizedBox(
                     height: 15,
@@ -216,16 +214,16 @@ class _ProfileDrawerState extends State<ProfileDrawer> {
                             children: <Widget>[
                               Text(
                                 'Team Chat',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600
-                                ),
+                                style: TextStyle(fontWeight: FontWeight.w600),
                               ),
-                              SizedBox(height: 5,),
-                              Text('Destiny 2',
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                'Destiny 2',
                                 style: TextStyle(
                                     color: gameTextColor,
-                                    fontWeight: FontWeight.bold
-                                ),
+                                    fontWeight: FontWeight.bold),
                               ),
                             ],
                           ),
@@ -254,7 +252,7 @@ class _ProfileDrawerState extends State<ProfileDrawer> {
                   ),
                   _buildTeams('Dota 2', dotaBg),
                   SizedBox(
-                    height: 20,
+                    height: 40,
                   ),
                   Container(
                     height: 50,
@@ -321,12 +319,13 @@ class _ProfileDrawerState extends State<ProfileDrawer> {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(height: 5,),
-                Text(name,
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  name,
                   style: TextStyle(
-                      color: gameTextColor,
-                      fontWeight: FontWeight.bold
-                  ),
+                      color: gameTextColor, fontWeight: FontWeight.bold),
                 ),
               ],
             ),

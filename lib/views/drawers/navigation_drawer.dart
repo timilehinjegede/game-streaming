@@ -3,7 +3,15 @@ import 'package:game_streaming/utils/colors.dart';
 import 'package:game_streaming/utils/screen_util.dart';
 import 'package:line_icons/line_icons.dart';
 
-class NavigationDrawer extends StatelessWidget {
+class NavigationDrawer extends StatefulWidget {
+  @override
+  _NavigationDrawerState createState() => _NavigationDrawerState();
+}
+
+class _NavigationDrawerState extends State<NavigationDrawer> {
+
+  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,9 +29,9 @@ class NavigationDrawer extends StatelessWidget {
                   width: 35,
                   color: Color(0xffFE5E50),
                 ),
-                
+
                 YBox(5),
-                
+
                 Container(
                   height: 35,
                   width: 8,
@@ -35,59 +43,111 @@ class NavigationDrawer extends StatelessWidget {
 
           Spacer(),
 
-          Container(
-            height: 50,
-            width: 50,
-            decoration: BoxDecoration(
-              color: Color(0xffE05E51),
+          InkWell(
+            onTap: (){
+              setState(() {
+                _currentIndex = 0;
+              });
+            },
+            child: Container(
+              height: 50,
+              width: 50,
+              decoration: BoxDecoration(
+                color: Color(0xffE05E51),
+                  borderRadius: BorderRadius.circular(8),
+                  boxShadow:  _currentIndex == 0 ? [
+                  BoxShadow(
+                    color: Color(0xffE05E51).withOpacity(0.2),
+                    offset: Offset(0,2),
+                    spreadRadius: 2,
+                    blurRadius: 2,
+                  ),
+                ] : []
+              ),
+              child: Icon(Icons.dashboard, color: Colors.white,),
+            ),
+          ),
+
+          YBox(50),
+
+          InkWell(
+            onTap: (){
+              setState(() {
+                _currentIndex = 1;
+              });
+            },
+            child: Container(
+              height: 50,
+              width: 50,
+              decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                boxShadow: [
-                BoxShadow(
-                  color: Colors.red.withOpacity(0.3),
-                  offset: Offset(0,2),
-                  spreadRadius: 2,
-                  blurRadius: 2,
-                )
-              ]
+                color: Color(0xffF4895D),
+                   boxShadow: _currentIndex == 1 ? [
+                    BoxShadow(
+                      color: Color(0xffF4895D).withOpacity(0.2),
+                      offset: Offset(0,2),
+                      spreadRadius: 2,
+                      blurRadius: 2,
+                    )
+                  ] : []
+              ),
+              child: Icon(LineIcons.rocket, color: Colors.white,),
             ),
-            child: Icon(Icons.dashboard, color: Colors.white,),
           ),
 
           YBox(50),
 
-          Container(
-            height: 50,
-            width: 50,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: Color(0xffF4895D),
+          InkWell(
+            onTap: (){
+              setState(() {
+                _currentIndex = 2;
+              });
+            },
+            child: Container(
+              height: 50,
+              width: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: Color(0xff734CF3),
+                  boxShadow: _currentIndex == 2 ? [
+                    BoxShadow(
+                      color: Color(0xff734CF3).withOpacity(0.2),
+                      offset: Offset(0,2),
+                      spreadRadius: 2,
+                      blurRadius: 2,
+                    )
+                  ] : []
+              ),
+              child: Icon(Icons.message, color: Colors.white,),
             ),
-            child: Icon(LineIcons.rocket, color: Colors.white,),
           ),
 
           YBox(50),
 
-          Container(
-            height: 50,
-            width: 50,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: Color(0xff734CF3),
+
+          InkWell(
+            onTap: (){
+              setState(() {
+                _currentIndex = 3;
+              });
+            },
+            child: Container(
+              height: 50,
+              width: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: Color(0xff4CCBF4),
+                  boxShadow: _currentIndex == 3 ? [
+                    BoxShadow(
+                      color: Color(0xff4CCBF4).withOpacity(0.2),
+                      offset: Offset(0,2),
+                      spreadRadius: 2,
+                      blurRadius: 2,
+                    )
+                  ] : []
+              ),
+              child: Icon(Icons.star, color: Colors.white,),
             ),
-            child: Icon(Icons.message, color: Colors.white,),
-          ),
-
-          YBox(50),
-
-
-          Container(
-            height: 50,
-            width: 50,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: Color(0xff4CCBF4),
-            ),
-            child: Icon(Icons.star, color: Colors.white,),
           ),
 
           Spacer(),

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:game_streaming/models/game.dart';
+import 'package:game_streaming/models/streamer.dart';
+import 'package:game_streaming/models/video.dart';
 import 'package:game_streaming/utils/colors.dart';
 import 'package:game_streaming/utils/screen_util.dart';
 import 'package:game_streaming/views/widgets/game.dart';
@@ -9,7 +12,6 @@ import 'package:game_streaming/views/widgets/video.dart';
 import 'package:line_icons/line_icons.dart';
 
 class HomeScreen extends StatelessWidget {
-
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
   @override
@@ -21,10 +23,7 @@ class HomeScreen extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(40)),
         child: SizedBox(
           width: 150,
-          child: Drawer(
-            elevation: 0,
-            child: NavigationDrawer()
-          ),
+          child: Drawer(elevation: 0, child: NavigationDrawer()),
         ),
       ),
       endDrawer: ClipRRect(
@@ -48,7 +47,7 @@ class HomeScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         _scaffoldKey.currentState.openDrawer();
                       },
                       highlightColor: Colors.transparent,
@@ -62,14 +61,12 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Container(
                               height: 8,
-                              width: 35,
+                              width: 25,
                               color: Color(0xffFE5E50),
                             ),
-
                             YBox(5),
-
                             Container(
-                              height: 35,
+                              height: 25,
                               width: 8,
                               color: Color(0xffFE5E50),
                             ),
@@ -77,9 +74,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-
                     Spacer(),
-
                     Container(
                       padding: EdgeInsets.only(left: 25.0, right: 15.0),
                       height: 50,
@@ -91,12 +86,23 @@ class HomeScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          Text('Search games...',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white70,
-                            ),
-                          ),
+                         Expanded(
+                           child: TextField(
+                             style: TextStyle(
+                               color: Colors.white70,
+                             ),
+                             decoration: InputDecoration(
+                               border: InputBorder.none,
+                               hintText: 'Search games...',
+                               hintStyle:  TextStyle(
+                                 fontSize: 14,
+                                 fontWeight: FontWeight.w500,
+                                 color: Colors.white70,
+                               ),
+                             ),
+                             cursorColor: Colors.white,
+                           ),
+                         ),
                           Image(
                             height: 20,
                             width: 20,
@@ -106,9 +112,7 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-
                     XBox(20),
-
                     Container(
                       height: 50,
                       width: 50,
@@ -122,9 +126,7 @@ class HomeScreen extends StatelessWidget {
                         size: 25,
                       ),
                     ),
-
                     XBox(80),
-
                     Container(
                       height: 50,
                       width: 150,
@@ -142,9 +144,7 @@ class HomeScreen extends StatelessWidget {
                               color: Colors.white,
                             ),
                           ),
-
                           XBox(8),
-
                           Container(
                             height: 25,
                             width: 25,
@@ -152,16 +152,18 @@ class HomeScreen extends StatelessWidget {
                               shape: BoxShape.circle,
                               color: Colors.white,
                             ),
-                            child: Icon(Icons.play_arrow, color: Color(0xffE05E51), size: 15,),
+                            child: Icon(
+                              Icons.play_arrow,
+                              color: Color(0xffE05E51),
+                              size: 15,
+                            ),
                           )
                         ],
                       ),
                     ),
-
                     Spacer(),
-
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         _scaffoldKey.currentState.openEndDrawer();
                       },
                       highlightColor: Colors.transparent,
@@ -171,13 +173,11 @@ class HomeScreen extends StatelessWidget {
                         backgroundImage: AssetImage('images/avatar.jpeg'),
                       ),
                     ),
-
                   ],
                 ),
               ),
 
-
-              YBox(60),
+              YBox(70),
 
               // recommended games
               Padding(
@@ -197,116 +197,22 @@ class HomeScreen extends StatelessWidget {
               Container(
                 height: 200,
                 width: double.infinity,
-                child: ListView(
+                child: ListView.separated(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   scrollDirection: Axis.horizontal,
-                  children: <Widget>[
-                    RecommendedGame(
-                      name: 'Overwatch',
-                      views: '45,967',
-                      color: overWatchBg,
-                      imagePath: 'images/overwatch4.png',
-                      height: 200,
-                      left: 20,
-                      bottom: 15,
-                    ),
-
-                    XBox(35),
-
-                    RecommendedGame(
-                      name: 'Apex Legends',
-                      views: '31,632',
-                      color: apexLegendBg,
-                      imagePath: 'images/al2.png',
-                      height: 160,
-                      left: 60,
-                      bottom: 42,
-                    ),
-
-                    XBox(35),
-
-                    RecommendedGame(
-                      name: 'Cyberspace',
-                      views: '13,933',
-                      color: cyberSpaceBg,
-                      imagePath: 'images/overwatch2.png',
-                      height: 175,
-                      left: 45,
-                      bottom: 35,
-                    ),
-
-                    XBox(35),
-
-                    RecommendedGame(
-                      name: 'HunterKillar',
-                      views: '4,003',
-                      color: Colors.blue[600],
-                      imagePath: 'images/al3.png',
-                      height: 150,
-                      left: 65,
-                      bottom: 45,
-                    ),
-
-                    XBox(35),
-
-                    RecommendedGame(
-                      name: 'HunterKillar',
-                      views: '4,003',
-                      color: Colors.blue[600],
-                      imagePath: 'images/al3.png',
-                      height: 150,
-                      left: 65,
-                      bottom: 45,
-                    ),
-
-                    XBox(35),
-
-                    RecommendedGame(
-                      name: 'HunterKillar',
-                      views: '4,003',
-                      color: Colors.blue[600],
-                      imagePath: 'images/al3.png',
-                      height: 150,
-                      left: 65,
-                      bottom: 45,
-                    ),
-
-                    XBox(35),
-
-                    RecommendedGame(
-                      name: 'HunterKillar',
-                      views: '4,003',
-                      color: Colors.blue[600],
-                      imagePath: 'images/al3.png',
-                      height: 150,
-                      left: 65,
-                      bottom: 45,
-                    ),
-
-                    XBox(35),
-
-                    RecommendedGame(
-                      name: 'HunterKillar',
-                      views: '4,003',
-                      color: Colors.blue[600],
-                      imagePath: 'images/al3.png',
-                      height: 150,
-                      left: 65,
-                      bottom: 45,
-                    ),
-
-                    XBox(35),
-
-                    RecommendedGame(
-                      name: 'HunterKillar',
-                      views: '4,003',
-                      color: Colors.blue[600],
-                      imagePath: 'images/al3.png',
-                      height: 150,
-                      left: 65,
-                      bottom: 45,
-                    ),
-                  ],
+                  itemCount: Game.gameList.length,
+                  separatorBuilder: (context, index) => XBox(30),
+                  itemBuilder: (context, index) {
+                    return RecommendedGame(
+                      name: Game.gameList[index].gameTitle,
+                      views: Game.gameList[index].numOfViews,
+                      color: Game.gameList[index].color,
+                      imagePath: Game.gameList[index].imgPath,
+                      height: Game.gameList[index].imgHeight,
+                      bottom: Game.gameList[index].positionBottom,
+                      left: Game.gameList[index].positionLeft,
+                    );
+                  },
                 ),
               ),
 
@@ -329,71 +235,19 @@ class HomeScreen extends StatelessWidget {
               Container(
                 height: 60,
                 width: double.infinity,
-                child: ListView(
+                child: ListView.separated(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   scrollDirection: Axis.horizontal,
-                  children: <Widget>[
-                    PopularStreamers(
-                      name: 'Jacob Adams',
-                      followers: '872k',
-                      color: Colors.orangeAccent[100],
-                      imagePath: 'images/aviT0.png',
-                    ),
-
-                    XBox(28),
-
-                    PopularStreamers(
-                      name: 'David Parker',
-                      followers: '532k',
-                      color: Colors.orangeAccent[200],
-                      imagePath: 'images/aviT1.png',
-                    ),
-
-                    XBox(28),
-
-                    PopularStreamers(
-                      name: 'David Parker',
-                      followers: '532k',
-                      color: Colors.orangeAccent[200],
-                      imagePath: 'images/aviT1.png',
-                    ),
-
-                    XBox(28),
-
-                    PopularStreamers(
-                      name: 'David Parker',
-                      followers: '532k',
-                      color: Colors.orangeAccent[200],
-                      imagePath: 'images/aviT1.png',
-                    ),
-
-                    XBox(28),
-
-                    PopularStreamers(
-                      name: 'David Parker',
-                      followers: '532k',
-                      color: Colors.orangeAccent[200],
-                      imagePath: 'images/aviT1.png',
-                    ),
-
-                    XBox(28),
-
-                    PopularStreamers(
-                      name: 'David Parker',
-                      followers: '532k',
-                      color: Colors.orangeAccent[200],
-                      imagePath: 'images/aviT1.png',
-                    ),
-
-                    XBox(28),
-
-                    PopularStreamers(
-                      name: 'David Parker',
-                      followers: '532k',
-                      color: Colors.orangeAccent[200],
-                      imagePath: 'images/aviT1.png',
-                    ),
-                  ],
+                  separatorBuilder: (context, index) => XBox(28),
+                  itemCount: Streamer.streamerList.length,
+                  itemBuilder: (context, index) {
+                    return PopularStreamers(
+                      name: Streamer.streamerList[index].name,
+                      followers: Streamer.streamerList[index].numOfFollowers,
+                      color: Streamer.streamerList[index].color,
+                      imagePath: Streamer.streamerList[index].imgPath,
+                    );
+                  },
                 ),
               ),
 
@@ -401,25 +255,14 @@ class HomeScreen extends StatelessWidget {
 
               Container(
                 height: 200,
-                child: ListView(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    scrollDirection: Axis.horizontal,
-                  children: <Widget>[
-                    GameVideoComponent('images/stream0.jpg'),
-                    XBox(30),
-                    GameVideoComponent('images/stream1.jpg'),
-                    XBox(30),
-                    GameVideoComponent('images/stream3.jpg'),
-                    XBox(30),
-                    GameVideoComponent('images/stream1.jpg'),
-                    XBox(30),
-                    GameVideoComponent('images/stream3.jpg'),
-                    XBox(30),
-
-                    GameVideoComponent('images/stream1.jpg'),
-                    XBox(30),
-                    GameVideoComponent('images/stream3.jpg'),
-                   ]
+                child: ListView.separated(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  scrollDirection: Axis.horizontal,
+                  separatorBuilder: (context, index) => XBox(30),
+                  itemCount: Video.videoList.length,
+                  itemBuilder: (context, index) {
+                    return GameVideoComponent(Video.videoList[index].imgPath);
+                  },
                 ),
               ),
             ],
