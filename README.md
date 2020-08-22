@@ -9,7 +9,7 @@ A game streaming desktop application built with Flutter.
   <img src="https://raw.githubusercontent.com/timilehinjegede/game-streaming/master/screenshots/left-nav.jpeg" width="1500"/>
   
 ### Profile NavBar
-  <img src="https://raw.githubusercontent.com/timilehinjegede/game-streaming/master/screenshot/right-nav.jpeg" width="1500"/>
+  <img src="https://raw.githubusercontent.com/timilehinjegede/game-streaming/master/screenshots/right-nav.jpeg" width="1500"/>
 
 ## Getting Started
 
