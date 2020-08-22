@@ -3,7 +3,7 @@
 A game streaming desktop application built with Flutter.
 
 ### Home Page
-  <img src="https://raw.githubusercontent.com/timilehinjegede/game-streaming/master/screenshot/home.jpeg" width="1500"/>
+  <img src="https://raw.githubusercontent.com/timilehinjegede/game-streaming/master/screenshots/home.jpeg" width="1500"/>
   
 ### Left NavBar
   <img src="https://raw.githubusercontent.com/timilehinjegede/game-streaming/master/screenshot/left-nav.jpeg" width="1500"/>
